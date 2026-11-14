@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kasirku/colors.dart';
 import 'package:kasirku/components/components.dart';
+import 'package:kasirku/extentions/theme_extention.dart';
+import 'package:kasirku/pages/kebijakan.dart';
 import 'package:kasirku/pages/main.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -113,8 +115,34 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
                   Expanded(
-                    child: RegularText(
-                      text: 'Dengan menekan daftar anda setuju dengan Srayat dan Kebijakan kami',
+                    child: RichText(
+                      textAlign: TextAlign.start,
+                      text: TextSpan(
+                        text: 'Dengan menekan daftar anda setuju dengan ',
+                        style: context.theme.textTheme.bodyMedium,
+                        children: [
+                          TextSpan(
+                            text: 'Srayat dan Kebijakan',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => KebijakanPage(),
+                                  ),
+                                );
+                              },
+                            style: TextStyle(
+                              color: AppColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' kami',
+                            style: context.theme.textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
