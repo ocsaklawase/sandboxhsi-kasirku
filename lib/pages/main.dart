@@ -1,5 +1,5 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:kasirku/catalog.dart';
+import 'package:kasirku/pages/catalog.dart';
 import 'package:kasirku/history.dart';
 import 'package:kasirku/home.dart';
 import 'package:kasirku/pages/profile.dart';
